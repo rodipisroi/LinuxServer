@@ -19,4 +19,8 @@ Langkah-langkahnya meliputi:
  
    ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/c32ec440-8378-45c7-9bab-3b2742214f4d)
 
+6. Lakukan ujicoba pada client
+   
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/538245ae-8b2e-428f-aa56-e165f45406d5)
+
 
