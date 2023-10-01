@@ -9,7 +9,7 @@ Langkah-langkahnya meliputi:
    ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/84573851-b13d-4958-a640-07a5cd00174b)
 3. [OPSIONAL]Hilangkan tanda pagar (#) pada baris _Passwordauthentication = Yes_ untuk mengizinkan client login menggunakan password sebagai metode autentikasi
    ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/87daf103-c8a7-40e4-a8e8-d96a448564fe)
-4. [OPSIONAL]Hilangkan tandda pagar (#) pada baris _Permitrootlogin yes_ untuk mengizinkan client login sebagai root
+5. [OPSIONAL]Hilangkan tandda pagar (#) pada baris _Permitrootlogin yes_ untuk mengizinkan client login sebagai root
    ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/c32ec440-8378-45c7-9bab-3b2742214f4d)
 
 
