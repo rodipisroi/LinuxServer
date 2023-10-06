@@ -1,6 +1,6 @@
 <h1>INSTALASI SSH SERVER</h1>
 
-<h2>Paket yang digunakan adalah <i>openssh</i></h2>
+> Paket yang digunakan adalah: `openssh`.
 
 Langkah-langkahnya meliputi:
 1. Melakukan instalasi paket ssh server yaitu openssh
@@ -21,7 +21,8 @@ Langkah-langkahnya meliputi:
  
    ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/c32ec440-8378-45c7-9bab-3b2742214f4d)
 
-7. Lakukan ujicoba pada client
+7. Simpan menggunakan shortcut _CTRL+O_ apabila menggunakan text editor nano atau command _:w_ apabila menggunakan vim
+8. Lakukan ujicoba pada client
    
    ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/538245ae-8b2e-428f-aa56-e165f45406d5)
 
