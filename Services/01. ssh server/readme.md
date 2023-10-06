@@ -8,21 +8,20 @@ Langkah-langkahnya meliputi:
    apt get install openssh
    ```
 
-   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/7df5311a-27e4-43ae-b8a1-beb2ee6b560b)
-
 3. Buka file <i>sshd_config</i> menggunakan text editor. Pathnya terletak di _/etc/ssh/sshd_config_
+   ```sh
+   nano /etc/ssh/sshd_config
+   ```
 
-   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/84573851-b13d-4958-a640-07a5cd00174b)
-
-4. [OPSIONAL]Hilangkan tanda pagar (#) pada baris _Passwordauthentication = Yes_ untuk mengizinkan client login menggunakan password sebagai metode autentikasi<br>
+5. [OPSIONAL]Hilangkan tanda pagar (#) pada baris _Passwordauthentication = Yes_ untuk mengizinkan client login menggunakan password sebagai metode autentikasi<br>
 
    ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/87daf103-c8a7-40e4-a8e8-d96a448564fe)
 
-5. [OPSIONAL]Hilangkan tandda pagar (#) pada baris _Permitrootlogin yes_ untuk mengizinkan client login sebagai root<br>
+6. [OPSIONAL]Hilangkan tandda pagar (#) pada baris _Permitrootlogin yes_ untuk mengizinkan client login sebagai root<br>
  
    ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/c32ec440-8378-45c7-9bab-3b2742214f4d)
 
-6. Lakukan ujicoba pada client
+7. Lakukan ujicoba pada client
    
    ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/538245ae-8b2e-428f-aa56-e165f45406d5)
 
