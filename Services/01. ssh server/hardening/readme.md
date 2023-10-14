@@ -20,3 +20,8 @@ Langkah-langkah yang harus dicek antara lain:
    ```sh
    chmod 600 /etc/ssh/sshd_config
    ```
+
+   Sehingga hasil akhirnya akan menjadi seperti berikut:
+
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/f6e1a845-e1cc-4af2-a7fe-562388c5c63c)
+
