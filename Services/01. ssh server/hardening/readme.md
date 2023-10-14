@@ -11,3 +11,7 @@ Langkah-langkah yang harus dicek antara lain:
     stat /etc/ssh/sshd_config
     ```
 
+   Outputnya akan seperti ini:
+
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/cad041de-a30f-4bb2-a779-ec154a9205ab)
+
