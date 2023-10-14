@@ -15,3 +15,8 @@ Langkah-langkah yang harus dicek antara lain:
 
    ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/cad041de-a30f-4bb2-a779-ec154a9205ab)
 
+   Ubah izin hak aksesnya sehingga hanya user _root_ yang dapat memiliki izin. Perintahnya adalah:
+
+   ```sh
+   chmod 600 /etc/ssh/sshd_config
+   ```
