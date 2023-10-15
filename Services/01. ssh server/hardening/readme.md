@@ -39,5 +39,9 @@ Langkah-langkah yang harus dicek antara lain:
 
    _ALlowUsers guest@192.168.1.0/24_ untuk bisa diakses oleh user yang memiliki ip dengan network 192.168.1.0
 
-   
+   <h6>Pengujian:</h6>
+
+   Apabila ada client yang mencoba mengakses selain dari alamat IP yang telah diatur, maka client tersebut tidak akan diberi akses.
+
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/be69861c-ccd7-4027-a58d-847146615188)
 
