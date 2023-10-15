@@ -10,22 +10,40 @@ Langkah-langkahnya meliputi:
    apt install ntp
    ```
 
-3. Buka file <i>ntp.conf</i> yang merupakan file konfigurasi NTP menggunakan text editor. Pathnya terletak di _/etc/ntp.conf_
+2. Buka file <i>ntp.conf</i> yang merupakan file konfigurasi NTP menggunakan text editor. Pathnya terletak di _/etc/ntp.conf_
    ```sh
    nano /etc/ntp.conf
    ```
 
-5. [OPSIONAL]Ubah lokasi pool NTP Server ke lokasi terdekat untuk mengurangi latensi/delay. Daftar pool dapat dilihat [disini](https://support.ntp.org/Servers/NTPPoolServers/)<br>
+3. [OPSIONAL]Ubah lokasi pool NTP Server ke lokasi terdekat untuk mengurangi latensi/delay. Daftar pool dapat dilihat [disini](https://support.ntp.org/Servers/NTPPoolServers/)<br>
 
    ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/0f876066-289a-4355-bea7-2abbe1115c68)
 
-6. [OPSIONAL]Hilangkan tandda pagar (#) pada baris _Permitrootlogin yes_ untuk mengizinkan client login sebagai root<br>
- 
-   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/c32ec440-8378-45c7-9bab-3b2742214f4d)
+   Apabila menggunakan server Indonesia, ubah menjadi:
 
-7. Simpan menggunakan shortcut _CTRL+O_ apabila menggunakan text editor nano atau command _:w_ apabila menggunakan vim
-8. Lakukan ujicoba pada client
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/f0edfd86-44f6-41f6-9641-e479410e6ab1)
+
+
+4. [OPSIONAL]Ini adalah baris server cadanagan apabila server utama mati<br>
+ 
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/6cf1baa8-49f6-43d7-afb3-960de9d7d3a4)
+
+5. Restart service NTP menggunakan perintah:
+
+   ```sh
+   systemctl restart ntp
+   ```
    
-   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/538245ae-8b2e-428f-aa56-e165f45406d5)
+6. [OPSIONAL]Check service NTP apakah sudah berjalan atau belum dengan perintah:
+
+   ```sh
+   ntpq -p
+   ```
+
+   Apabila berhasil, maka hasilnya adalah seperti berikut:
+
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/1779454c-a51e-4def-bf12-c43781092854)
+
+
 
 
