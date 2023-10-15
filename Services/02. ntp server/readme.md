@@ -46,10 +46,14 @@ Langkah-langkahnya meliputi:
 
 ## Konfigurasi NTP CLient pada Windows
 
-1. Pergi ke Control Panel\Clock and Region\Date and Time\Internet Time
+1. Pergi ke _Control Panel\Clock and Region\Date and Time\Internet Time_
 
 2. Ubah Servernya sesuai dengan IP Server yang telah terinstall NTP Server
 
    ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/e52b7f1d-437a-4fab-bdda-b56e6a245f54)
+
+## Konfigurasi NTP Client pada Linux
+
+
 
 
