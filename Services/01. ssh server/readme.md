@@ -1,6 +1,6 @@
 <h1>INSTALASI SSH SERVER</h1>
 
-> Paket yang digunakan adalah: `openssh`.
+## Paket yang digunakan adalah: `openssh`.
 
 Langkah-langkahnya meliputi:
 1. Melakukan instalasi paket ssh server yaitu openssh
