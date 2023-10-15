@@ -15,9 +15,9 @@ Langkah-langkahnya meliputi:
    nano /etc/ntp.conf
    ```
 
-5. [OPSIONAL]Hilangkan tanda pagar (#) pada baris _Passwordauthentication = Yes_ untuk mengizinkan client login menggunakan password sebagai metode autentikasi<br>
+5. [OPSIONAL]Ubah lokasi pool NTP Server ke lokasi terdekat untuk mengurangi latensi/delay. Daftar pool dapat dilihat [disini]([https://breakdance.github.io/breakdance/](https://support.ntp.org/Servers/NTPPoolServers))<br>
 
-   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/87daf103-c8a7-40e4-a8e8-d96a448564fe)
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/0f876066-289a-4355-bea7-2abbe1115c68)
 
 6. [OPSIONAL]Hilangkan tandda pagar (#) pada baris _Permitrootlogin yes_ untuk mengizinkan client login sebagai root<br>
  
