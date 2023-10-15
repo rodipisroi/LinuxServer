@@ -54,6 +54,32 @@ Langkah-langkahnya meliputi:
 
 ## Konfigurasi NTP Client pada Linux
 
+1. Buka file _timesyncd.conf_ menggunakan text editor.
+
+   ```sh
+   nano /etc/systemd/timesyncd.conf
+   ```
+
+2. Hilangkan tanda pagar (#) pada baris _#NTP=_. Isi dengan alamat server Linux yang telah terinstall NTP.
+
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/c777d3dd-7fd6-4d31-bd18-f4efea11287e)
+
+3. Restart waktu dengan perintah
+
+   ```sh
+   sudo systemctl restart systemd-timesyncd.service
+   ```
+   
+4. Cek apakah client sudah berhasil mendapatkan/sinkronisasi waktu dari server dengan perintah
+
+   ```sh
+   timedatectl timesync-status
+   ```
+
+   Hasilnya adalah:
+
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/3b3ec4a0-e7bc-4f91-acf0-512a2e31d816)
+
 
 
 
