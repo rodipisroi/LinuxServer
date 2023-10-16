@@ -1,5 +1,7 @@
 <h1>INSTALASI SSH SERVER</h1>
 
+SSH (Secure Shell) server adalah perangkat lunak yang digunakan untuk memberikan layanan akses jarak jauh yang aman ke sebuah sistem atau komputer melalui protokol SSH. Ini memungkinkan pengguna untuk melakukan koneksi aman dan mengendalikan sistem dari jarak jauh dengan enkripsi yang kuat, yang menjaga data dan akses dari potensi serangan dan pengawasan yang tidak diinginkan. SSH sering digunakan untuk mengelola server, mentransfer file, dan menjalankan perintah pada mesin jarak jauh.
+
 ## Paket yang digunakan adalah: `openssh`.
 
 Langkah-langkahnya meliputi:
