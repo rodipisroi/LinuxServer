@@ -1,5 +1,7 @@
 <h1>INSTALASI DAN KONFIGURASI NTP SERVER</h1>
 
+NTP (Network Time Protocol) server adalah sebuah server yang digunakan untuk menyediakan referensi waktu yang akurat dan sinkronisasi waktu dalam jaringan komputer. NTP server memungkinkan perangkat dalam jaringan untuk menjaga waktu yang konsisten dengan standar waktu global, seperti UTC (Coordinated Universal Time), sehingga memungkinkan berbagai perangkat di jaringan untuk bekerja dengan waktu yang tepat dan seragam.
+
 ## Paket yang digunakan adalah: `ntp` atau `chrony`.
 
 <h2>Instalasi dan Konfigurasi NTP Server Menggunakan NTP</h2>
