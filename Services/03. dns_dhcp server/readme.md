@@ -37,14 +37,18 @@ Langkah-langkahnya meliputi:
 
    ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/65e0450b-13b8-4198-a3a5-d8035e0fa7aa)
 
-8. Simpan dan Keluar
+8. [OPSIONAL]Pada baris ke 135 dan 145, hilangkan tanda pagar (#) untuk mengkonversi ketikkan nama hostname menjadi domain.   
 
-9. Buat symbolic link/rujukan dari file _/run/systemd/resolve/resolv.conf_ merujuk ke _/etc/resolv.conf_ 
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/3f760c5d-1e6c-4c09-8737-3d5948a7cea3)
+
+9. Simpan dan Keluar
+
+10. Buat symbolic link/rujukan dari file _/run/systemd/resolve/resolv.conf_ merujuk ke _/etc/resolv.conf_ 
 
    ```sh
    ln -fs /run/systemd/resolve/resolv.conf /etc/resolv.conf
    ```
-10. Restart dnsmasq service dengan perintah
+11. Restart dnsmasq service dengan perintah
 
     ```sh
     systemctl restart dnsmasq
@@ -53,42 +57,42 @@ Langkah-langkahnya meliputi:
     Note: apabila terdapat error, gunakan perintah _journalctl -xe_ untuk mencari letak errornya.
 
     
-## Konfigurasi NTP CLient pada Windows
+## Menambahkan query DNS
 
-1. Pergi ke _Control Panel\Clock and Region\Date and Time\Internet Time_
-
-2. Ubah Servernya sesuai dengan IP Server yang telah terinstall NTP Server
-
-   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/e52b7f1d-437a-4fab-bdda-b56e6a245f54)
-
-## Konfigurasi NTP Client pada Linux
-
-1. Buka file _timesyncd.conf_ menggunakan text editor.
+1. Buka file _/etc/hosts_
 
    ```sh
-   nano /etc/systemd/timesyncd.conf
+   nano /etc/hosts
    ```
 
-2. Hilangkan tanda pagar (#) pada baris _#NTP=_. Isi dengan alamat server Linux yang telah terinstall NTP.
-
-   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/c777d3dd-7fd6-4d31-bd18-f4efea11287e)
-
-3. Restart waktu dengan perintah
+2. Tambahkan entri DNS dengan format
 
    ```sh
-   sudo systemctl restart systemd-timesyncd.service
+   ip_server    nama_domain   hostname(opsional)
    ```
-   
-4. Cek apakah client sudah berhasil mendapatkan/sinkronisasi waktu dari server dengan perintah
+
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/6dcf4b5c-dfd6-48ad-b491-0c097d4b3af2)
+
+3. Simpan dan Keluar. Restart dnsmasq untuk merefresh daftar hosts.
 
    ```sh
-   timedatectl timesync-status
+   systemctl restart dnsmasq
    ```
 
-   Hasilnya adalah:
+## Pengecekan query DNS pada Client
 
-   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/3b3ec4a0-e7bc-4f91-acf0-512a2e31d816)
+1. Menggunakan perintah _nslookup_
 
+   ```sh
+   nslookup nama_domain/ip_address
+   ```
 
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/fe992bb5-2e05-4495-9979-6dc82f19eb15)
 
+2. Menggunakan perintah _dig_
 
+   ```sh
+   dig nama_domain/ip_address
+   ```
+
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/f756b31f-3f36-41a5-9cee-79a0453fcd0b)
