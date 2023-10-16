@@ -1,4 +1,4 @@
-<h1>INSTALASI DAN KONFIGURASI DNS SERTA DHCP SERVER</h1>
+<h1>INSTALASI DAN KONFIGURASI DNS SERVER</h1>
 
 DNS (Domain Name System) server adalah komputer atau server yang bertugas menerjemahkan nama domain seperti "www.example.com" ke alamat IP yang sesuai. DNS server memainkan peran kunci dalam infrastruktur internet dengan menghubungkan nama domain yang mudah diingat dengan alamat IP yang digunakan untuk mengidentifikasi server dan perangkat di internet. Dengan cara ini, DNS server memungkinkan perangkat untuk menemukan dan berkomunikasi satu sama lain di jaringan internet dengan menggunakan nama domain yang lebih mudah diingat daripada alamat IP numerik.
 
