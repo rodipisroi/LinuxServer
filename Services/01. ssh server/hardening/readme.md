@@ -7,7 +7,6 @@ Langkah-langkah yang harus dicek antara lain:
    File /etc/ssh/sshd_config perlu dilindungi dari perubahan yang tidak sah dengan pengguna yang tidak memiliki hak istimewa.
   Untuk mengecek permissions file _sshd_config_, gunakan perintah
 
-    sh
     stat /etc/ssh/sshd_config
 
    Outputnya akan seperti ini:
