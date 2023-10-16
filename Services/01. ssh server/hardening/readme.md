@@ -31,13 +31,13 @@ Langkah-langkah yang harus dicek antara lain:
    AllowUsers your_username@ip_address
    ```
 
-   example: 
+   Example: 
    
    _AllowUsers root@192.168.1.200_ untuk bisa diakses dengan alamat ip spesifik
 
    _ALlowUsers guest@192.168.1.0/24_ untuk bisa diakses oleh user yang memiliki ip dengan network 192.168.1.0
 
-   <h6>Pengujian:</h6>
+   Pengujian:
 
    Apabila ada client yang mencoba mengakses selain dari alamat IP yang telah diatur, maka client tersebut tidak akan diberi akses.
 
