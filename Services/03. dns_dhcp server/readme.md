@@ -2,8 +2,6 @@
 
 DNS (Domain Name System) server adalah komputer atau server yang bertugas menerjemahkan nama domain seperti "www.example.com" ke alamat IP yang sesuai. DNS server memainkan peran kunci dalam infrastruktur internet dengan menghubungkan nama domain yang mudah diingat dengan alamat IP yang digunakan untuk mengidentifikasi server dan perangkat di internet. Dengan cara ini, DNS server memungkinkan perangkat untuk menemukan dan berkomunikasi satu sama lain di jaringan internet dengan menggunakan nama domain yang lebih mudah diingat daripada alamat IP numerik.
 
-DHCP (Dynamic Host Configuration Protocol) server adalah server yang digunakan untuk mengotomatisasi pengaturan jaringan dalam sebuah jaringan komputer. DHCP server memberikan alamat IP, informasi subnet mask, alamat gateway, dan alamat server DNS secara dinamis kepada perangkat yang terhubung ke jaringan. Ini memungkinkan perangkat untuk secara otomatis mengkonfigurasi diri mereka sendiri tanpa perlu pengaturan manual, memudahkan administrasi jaringan yang lebih efisien.
-
 ## Paket yang digunakan adalah: `dnsmasq`.
 
 <h2>Instalasi dan Konfigurasi DNS Server Menggunakan dnsmasq</h2>
