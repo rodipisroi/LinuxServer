@@ -58,4 +58,25 @@ Pada Virtual Machine pusat, langkah langkahnya meliputi:
    ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/ed28265d-8160-42dd-92bb-cba94e10f233)
 
 
-6. 
+6. Tambahkan konfigurasi listen stats untuk mengaktifkan modul statistik pada HAProxy.
+   ```sh
+   listen stats
+    bind ipaddress:8080
+    stats enable
+    stats hide-version
+    stats refresh 30s
+    stats show-node
+    stats auth username:password
+    stats uri /stats
+   ```
+
+   Berikut adalah arti dari setiap baris konfigurasi:
+   - **listen stat**s: Menunjukkan bahwa konfigurasi ini terkait dengan mendengarkan (listen) statistik.
+   - **bind ipaddress:8080**: Mengikat HAProxy untuk mendengarkan alamat IP Server dan port 8080.
+   - **stats enable**: Mengaktifkan modul statistik.
+   - **stats hide-version**: Menyembunyikan versi HAProxy dari output statistik untuk keamanan.
+   - **stats refresh 30**s: Menentukan interval penyegaran statistik, dalam hal ini, setiap 30 detik.
+   - **stats show-node**: Menampilkan informasi tentang node (server backend) dalam statistik.
+   - **stats auth username:password**: Menetapkan nama pengguna dan kata sandi yang diperlukan untuk mengakses halaman statistik.
+   - **stats uri /stats**: Menentukan URI atau path tempat statistik akan diakses, dalam hal ini, /stats.
+7. 
