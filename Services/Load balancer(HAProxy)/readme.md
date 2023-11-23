@@ -13,11 +13,16 @@ HAProxy, atau High Availability Proxy, adalah perangkat lunak load balancer dan 
 
 <h2>Instalasi Load Balancer Menggunakan HAProxy</h2>
 
-Langkah-langkahnya meliputi:<br>
-
-Virtual Machine Pusat:
+Pada Virtual Machine pusat, langkah langkahnya meliputi:
 
 1. Melakukan instalasi paket haproxy pada
    ```sh
    apt install haproxy
    ```
+2. Menambahkan IP Address dari masing masing host/server
+   ```sh
+   nano /etc/hosts
+   ```
+
+3. 
+4. 
