@@ -60,7 +60,7 @@ Langkah-langkahnya meliputi:
    apt install -y php-fpm php-mysql php-cli
    ```
 
-<h2>Instalasi PHPmyadminL</h2>
+<h2>Instalasi PHPmyadmin</h2>
 
 Langkah-langkahnya meliputi:
 1. Melakukan instalasi paket phpmyadmin
