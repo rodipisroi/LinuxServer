@@ -13,7 +13,7 @@ HAProxy, atau High Availability Proxy, adalah perangkat lunak load balancer dan 
 
 <h2>Instalasi Load Balancer Menggunakan HAProxy</h2>
 
-Langkah-langkahnya meliputi:
+Langkah-langkahnya meliputi:<br>
 
 Virtual Machine Pusat:
 
