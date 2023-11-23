@@ -59,3 +59,55 @@ Langkah-langkahnya meliputi:
    ```sh
    apt install -y php-fpm php-mysql php-cli
    ```
+
+<h2>Instalasi PHPmyadminL</h2>
+
+Langkah-langkahnya meliputi:
+1. Melakukan instalasi paket phpmyadmin
+   ```sh
+   apt install phpmyadmin
+   ```
+2. Pada saat proses instalasi akan terdapat pilihan untuk memilih webserver Apache atau Lighttpd, klik TAB untuk tidak memilih.
+3. Ketika ada pilihan _allow dbconfig-common to install a database and configure_ Pilih Yes dan tekan ENTER.
+4. Buat file baru untuk file konfigurasi phpmyadmin dengan perintah
+   ```sh
+   nano /etc/nginx/snippets/phpmyadmin.conf
+   ```
+5. Paste script dibawah ke dalam file phpmyadmin.conf
+   ```sh
+   location /phpmyadmin {
+	    root /usr/share/;
+	    index index.php index.html index.htm;
+	    location ~ ^/phpmyadmin/(.+\.php)$ {
+	        try_files $uri =404;
+	        root /usr/share/;
+	        fastcgi_pass unix:/run/php/php8.0(php ver name)-fpm.sock;
+	        fastcgi_index index.php;
+	        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+	        include /etc/nginx/fastcgi_params;
+	    }
+
+                  location ~* ^/phpmyadmin/(.+\.(jpg|jpeg|gif|css|png|js|ico|html|xml|txt))$ {
+	        root /usr/share/;
+	    }
+
+	}```
+6. Kemudian buka file _/etc/nginx/sites-available/default_ dengan perintah nano
+   ```sh
+   nano /etc/nginx/sites-available/default
+   ```
+7. Tambahkan konfigurasi _include snippets/phpmyadmin.conf;_ di dalam block server{}
+   ```sh
+   server {
+		    . . .
+              		           include snippets/phpmyadmin.conf;
+		    . . .
+		}
+   ```
+8. Restart nginx dengan perintah
+   ```sh
+   systemctl restart nginx
+   ```
+9. Ujicoba pada browser dengan membuka _http://ipserver/phpmyadmin_ kemudian masukkan user root dan password sesuai yang disetting pada saat konfigurasi MySQL.
+    ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/d7e6e401-2739-4c06-aea6-06b62848bdad)
+
