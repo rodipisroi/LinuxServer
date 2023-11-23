@@ -49,3 +49,13 @@ Langkah-langkahnya meliputi:
    ```sh
    exit
    ```
+
+<h2>Instalasi PHP-FPM</h2>
+
+PHP-FPM (PHP FastCGI Process Manager) adalah komponen server web yang memisahkan dan mengelola proses PHP secara efisien, meningkatkan kinerja dan skalabilitas dengan memungkinkan konfigurasi dinamis dari pool proses PHP. Dengan memanfaatkan arsitektur FastCGI, PHP-FPM dapat berinteraksi dengan server web seperti Nginx atau Apache, memastikan penanganan permintaan PHP yang cepat dan terisolasi, serta memberikan kontrol yang lebih baik terhadap manajemen sumber daya dan kestabilan server.
+
+Langkah-langkahnya meliputi:
+1. Melakukan instalasi paket php-fpm versi terbaru
+   ```sh
+   apt install -y php-fpm php-mysql php-cli
+   ```
