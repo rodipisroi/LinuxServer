@@ -4,13 +4,18 @@ HAProxy, atau High Availability Proxy, adalah perangkat lunak load balancer dan 
 
 ![1610636377991](https://github.com/rodipisroi/LinuxServer/assets/104636035/cdbc64e1-beda-448c-9f09-63e3aec8b3a0)
 
+## Persiapan yang dibutuhkan
+
+- 1 Virtual Machine Pusat sebagai Load Balancer yang terinstall HAProxy
+- 2 Virtual Machine sebagai Webserver yang identik
 
 ## Paket yang digunakan adalah: `haproxy`.
 
 <h2>Instalasi Load Balancer Menggunakan HAProxy</h2>
 
 Langkah-langkahnya meliputi:
-1. Melakukan instalasi paket haproxy
+Virtual Machine Pusat:
+1. Melakukan instalasi paket haproxy pada
    ```sh
    apt install haproxy
    ```
