@@ -20,3 +20,32 @@ Langkah-langkahnya meliputi:
 3. Ujicoba pada browser client dengan mengakses IP Address Webserver
 
     ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/acf7d28d-7029-4a7c-b3bd-74c12e8f2944)
+
+<h2>Instalasi Database Server Menggunakan MySQL</h2>
+
+Langkah-langkahnya meliputi:
+1. Melakukan instalasi paket database server yaitu mysql-server
+   ```sh
+   apt install mysql-server
+   ```
+   
+2. Masuk ke MySQL menggunakan root
+   ```sh
+   sudo mysql
+   ```
+   
+3. Menambahkan password untuk root pada MySQL
+   ```sh
+   ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'Password_anda!?3';
+   ```
+
+4. Menguji password tersebut dengan login ke mysql menggunakan user root
+   ```sh
+   mysql -u root -p
+   ```
+   Kemudian masukkan password, maka akan berhasil masuk
+
+5. Keluar MySQL dengan perintah
+   ```sh
+   exit
+   ```
