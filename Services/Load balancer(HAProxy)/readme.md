@@ -79,4 +79,8 @@ Pada Virtual Machine pusat, langkah langkahnya meliputi:
    - **stats show-node**: Menampilkan informasi tentang node (server backend) dalam statistik.
    - **stats auth username:password**: Menetapkan nama pengguna dan kata sandi yang diperlukan untuk mengakses halaman statistik.
    - **stats uri /stats**: Menentukan URI atau path tempat statistik akan diakses, dalam hal ini, /stats.
-7. 
+
+7. Restart HAProxy
+   ```sh
+   systemctl restart haproxy
+   ```
