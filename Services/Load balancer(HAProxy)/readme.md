@@ -29,5 +29,33 @@ Pada Virtual Machine pusat, langkah langkahnya meliputi:
    nano /etc/hosts
    ```
 
-3. 
-4. 
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/3ee3b982-e12b-4f26-b731-4d8ffb8c162b)
+
+
+3. Langkah selanjutnya, melakukan konfigurasi load balancer pada file haproxy.cfg
+   ```sh
+   nano /etc/haproxy/haproxy.cfg
+   ```
+
+4. Selanjutnya, menambahkan konfigurasi frontend untuk selalu listen port 80 (HTTP) pada baris paling bawah. 
+   ```sh
+   frontend front-loadbalance
+    bind alamat IP ke client:80
+    mode http
+    default_backend back-loadbalance
+   ```
+
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/1a6dc9ae-74b3-413a-89a7-8c49d1995a4d)
+
+5. Tambahkan konfigurasi untuk backend pada bagian bawah. Untuk metode loadbalancernya menggunakan metode round robin
+   ```sh
+   backend back-loadbalance
+    balance roundrobin
+    server web-server1 IPAddress_webserver1 check port 80
+    server web-server2 IPAddress_webserver2 check port 80
+   ```
+
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/ed28265d-8160-42dd-92bb-cba94e10f233)
+
+
+6. 
