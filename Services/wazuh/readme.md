@@ -211,3 +211,30 @@ Langkah-langkahnya meliputi:
 
    ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/e9573887-ce10-4cf1-bdf8-aaeddb5e645d)
 
+## Install Wazuh Agent pada Linux
+
+Langkahnya adalah:
+
+1. Install GPG-key
+   ```sh
+   curl -s https://packages.wazuh.com/key/GPG-KEY-WAZUH | gpg --no-default-keyring --keyring gnupg-ring:/usr/share/keyrings/wazuh.gpg --import && chmod 644 /usr/share/keyrings/wazuh.gpg
+   ```
+
+2. Menambahkan Repository
+   ```sh
+   echo "deb [signed-by=/usr/share/keyrings/wazuh.gpg] https://packages.wazuh.com/4.x/apt/ stable main" | tee -a /etc/apt/sources.list.d/wazuh.list
+   ```
+
+3. Update Repository
+   ```sh
+   apt-get update
+   ```
+   
+4. Install Wazuh Agent. Sesuaikan IP Address dengan IP Wazuh Server.
+   ```sh
+   WAZUH_MANAGER="10.0.0.2" apt-get install wazuh-agent
+   ```
+
+5. Cek wazuh agent di wazuh dashboard
+
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/5c3c1197-1346-44af-9fea-a4456d69489f)
