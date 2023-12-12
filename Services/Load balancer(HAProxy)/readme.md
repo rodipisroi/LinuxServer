@@ -84,3 +84,5 @@ Pada Virtual Machine pusat, langkah langkahnya meliputi:
    ```sh
    systemctl restart haproxy
    ```
+
+8. Load balancer siap digunakan. Tinggal hubungkan Load Balancer dengan Webserver 1 dan 2. Pastikan Webserver sudah terintall paket http server.
