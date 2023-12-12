@@ -3,7 +3,6 @@
 
 Wazuh merupakan salah satu aplikasi open source yang berfungsi sebagai sistem deteksi berbasis host (endpoint). Wazuh melakukan analisis log, pemeriksaan integritas, pemantauan registry Windows, deteksi rootkit, peringatan berbasis waktu, dan respons aktif. Wazuh terdiri dari dua bagian, yaitu Wazuh-Server dan Wazuh-Agent. Wazuh-Server merupakan perangkat yang digunakan sebagai manajemen agen dan dashboard sistem monitoring baik file integrity, intrusion, maupun log. Sedangkan, Wazuh-Agent merupakan perangkat yang diinstal pada perangkat endpoint untuk melakukan pembacaan sistem, pengumpulan log, dan mengirimkan ke Wazuh-Server.
 
-![1610636377991](https://github.com/rodipisroi/LinuxServer/assets/104636035/cdbc64e1-beda-448c-9f09-63e3aec8b3a0)
 
 ## Persiapan yang dibutuhkan
 
@@ -17,7 +16,7 @@ Wazuh merupakan salah satu aplikasi open source yang berfungsi sebagai sistem de
 
 <h2>Instalasi Wazuh Indexer, Wazuh Server, Wazuh Dashboard pada Wazuh Server</h2>
 
-##Wazuh Indexer
+## Wazuh Indexer
 
 Pada Virtual Machine pusat, langkah langkahnya meliputi:
 
@@ -91,3 +90,124 @@ Pada Virtual Machine pusat, langkah langkahnya meliputi:
     systemctl enable wazuh-indexer
     systemctl start wazuh-indexer
     ```
+
+## Wazuh Manager
+
+Langkah-langkahnya meliputi:
+
+1. Install wazuh manager
+   ```sh
+   apt-get -y install wazuh-manager
+   ```
+   
+2. Enable wazuh manager
+   ```sh
+   systemctl daemon-reload
+   systemctl enable wazuh-manager
+   systemctl start wazuh-manager
+   ```
+   
+3. Cek status wazuh manager
+   ```sh
+   systemctl status wazuh-manager
+   ```
+   
+4. Install filebeat
+   ```sh
+   apt-get -y install filebeat
+   ```
+
+5. Download filebeat config
+   ```sh
+   curl -so /etc/filebeat/filebeat.yml https://packages.wazuh.com/4.7/tpl/wazuh/filebeat/filebeat.yml
+   ```
+
+6. Edit file _/etc/filebeat/filebeat.yml_. Ubah host sesuai alamat IP Wazuh
+
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/dd432954-b221-4faf-ae05-58998344f3f1)
+
+7. Create filebeat keystore
+   ```sh
+   filebeat keystore create
+   ```
+
+8. Tambahkan username dan password default admin:admin
+   ```sh
+   echo admin | filebeat keystore add username --stdin --force
+   echo admin | filebeat keystore add password --stdin --force
+   ```
+
+9. Download alert template untuk wazuh indexer
+   ```sh
+   curl -so /etc/filebeat/wazuh-template.json https://raw.githubusercontent.com/wazuh/wazuh/v4.7.0/extensions/elasticsearch/7.x/wazuh-template.json
+   chmod go+r /etc/filebeat/wazuh-template.json
+   ```
+
+10. Install wazuh module filebeat
+    ```sh
+    curl -s https://packages.wazuh.com/4.x/filebeat/wazuh-filebeat-0.3.tar.gz | tar -xvz -C /usr/share/filebeat/module
+    ```
+
+11. Deploy certificate. Ubah kata (_$NODE_NAME_) menjadi nama node sesuai _config.yml_. Misal: _node-1_
+    ```sh
+    mkdir /etc/filebeat/certs
+    tar -xf ./wazuh-certificates.tar -C /etc/filebeat/certs/ ./$NODE_NAME.pem ./$NODE_NAME-key.pem ./root-ca.pem
+    mv -n /etc/filebeat/certs/$NODE_NAME.pem /etc/filebeat/certs/filebeat.pem
+    mv -n /etc/filebeat/certs/$NODE_NAME-key.pem /etc/filebeat/certs/filebeat-key.pem
+    chmod 500 /etc/filebeat/certs
+    chmod 400 /etc/filebeat/certs/*
+    chown -R root:root /etc/filebeat/certs
+    ```
+   
+12. Start filebeat
+    ```sh
+    systemctl daemon-reload
+    systemctl enable filebeat
+    systemctl start filebeat
+    ```
+
+13. Cek apakah konfigurasi filebeat berhasil
+    ```sh
+    filebeat test output
+    ```
+
+## Wazuh Dashboard
+
+Langkah-langkahnya meliputi:
+
+1. Install paket required
+   ```sh
+   apt-get install debhelper tar curl libcap2-bin #debhelper version 9 or later
+   ```
+
+2. Install wazuh dashboard
+   ```sh
+   apt-get -y install wazuh-dashboard
+   ```
+
+3. Edit file _/etc/wazuh-dashboard/open_dashboard.yml_. Ganti _opensearch_host_ sesuai IP Wazuh
+
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/2cdd629c-ceeb-47fd-a1f3-4484bad37274)
+
+4. Deploy certificate. Ubah kata (_$NODE_NAME_) menjadi nama node sesuai _config.yml_. Misal: _node-1_
+   ```sh
+   mkdir /etc/wazuh-dashboard/certs
+   tar -xf ./wazuh-certificates.tar -C /etc/wazuh-dashboard/certs/ ./$NODE_NAME.pem ./$NODE_NAME-key.pem ./root-ca.pem
+   mv -n /etc/wazuh-dashboard/certs/$NODE_NAME.pem /etc/wazuh-dashboard/certs/dashboard.pem
+   mv -n /etc/wazuh-dashboard/certs/$NODE_NAME-key.pem /etc/wazuh-dashboard/certs/dashboard-key.pem
+   chmod 500 /etc/wazuh-dashboard/certs
+   chmod 400 /etc/wazuh-dashboard/certs/*
+   chown -R wazuh-dashboard:wazuh-dashboard /etc/wazuh-dashboard/certs
+    ```
+
+5. Start wazuh dashboard
+   ```sh
+   systemctl daemon-reload
+   systemctl enable wazuh-dashboard
+   systemctl start wazuh-dashboard
+   ```
+
+6. Akses dashboard wazuh dengan _https://ip-wazuh_. Default password admin:admin 
+
+   ![image](https://github.com/rodipisroi/LinuxServer/assets/104636035/e9573887-ce10-4cf1-bdf8-aaeddb5e645d)
+
